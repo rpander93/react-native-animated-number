@@ -1,0 +1,49 @@
+{
+  "name": "react-native-animated-number",
+  "version": "1.0.0",
+  "description": "React Native component that animates a number by smoothly changing it between renders",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "jsnext:main": "build/index.es.js",
+  "sideEffects": false,
+  "scripts": {
+    "test": "jest",
+    "prepare": "npm run build",
+    "build": "rollup -c"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "animated",
+    "number"
+  ],
+  "author": "Remco Pander",
+  "license": "ISC",
+  "files": [
+    "build"
+  ],
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@types/jest": "^24.0.18",
+    "@types/react": "^16.9.2",
+    "@types/react-native": "^0.60.13",
+    "@types/react-test-renderer": "^16.9.0",
+    "jest": "^24.9.0",
+    "react": "^16.9.0",
+    "react-native": "^0.60.5",
+    "react-test-renderer": "^16.9.0",
+    "rollup": "^1.21.2",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-typescript": "^1.0.1",
+    "ts-jest": "^24.0.2",
+    "tslib": "^1.10.0",
+    "typescript": "^3.6.3"
+  },
+  "peerDependencies": {
+    "react": "^16.3",
+    "react-native": "*"
+  }
+}
