@@ -13,7 +13,7 @@ export default class AnimatedNumber extends React.Component<Props & Omit<TextInp
     time: 17,
   };
 
-  private intervalTimer?: number;
+  private intervalTimer?: NodeJS.Timeout;
   /** No need to keep the current value in state since we update it imperatively */
   private currentValue: number;
   private textInputRef: React.RefObject<TextInput>;
