@@ -5,7 +5,7 @@ This component renders a text that smoothly animates to new values as props chan
 
 [Example snack](https://snack.expo.io/rk7n_5DIH)
 
-Other implementations exist. This one is different because it uses a <TextInput /> rather than a <Text /> component and uses [setNativeProps](https://facebook.github.io/react-native/docs/direct-manipulation) to update the value. The benefit of this is that it is much more performant than using state to update the value so the experience is much smoother.
+Other implementations exist. This one is different because it uses a TextInput rather than a Text component and uses [setNativeProps](https://facebook.github.io/react-native/docs/direct-manipulation) to update the value. The benefit of this is that it is much more performant than using state to update the value so the experience is much smoother.
 
 ## How to use
 
@@ -23,7 +23,7 @@ import AnimatedNumber from "react-native-animated-number";
 <AnimatedNumber value={100} />
 ```
 
-The component accepts all props from <TextInput />, plus the following:
+The component accepts all props from TextInput, plus the following:
 
 ```javascript
 interface Props {
