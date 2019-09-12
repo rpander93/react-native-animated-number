@@ -1,4 +1,4 @@
-# React Native Animated Number
+# React Native Animated Number [![npm version](https://badge.fury.io/js/react-native-animated-number.svg)](https://badge.fury.io/js/react-native-animated-number)
 
 ## What is this?
 This component renders a text that smoothly animates to new values as props change.
