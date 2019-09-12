@@ -13,6 +13,15 @@ test("It should render with the initial value", () => {
   expect(tree).toMatchSnapshot();
 });
 
+test("It should render with a custom formatter", () => {
+  const formatter = (value: number) => `USD ${value}`;
+
+  const component = create(<AnimatedNumber formatter={formatter} value={100} />);
+  const instance = component.root;
+
+  expect(instance.findByType(TextInput).props.value).toEqual("USD 100");
+});
+
 test("It should update to a new value", () => {
   const component = create(<AnimatedNumber value={100} />);
   component.update(<AnimatedNumber value={200} />);

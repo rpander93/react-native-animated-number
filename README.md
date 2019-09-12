@@ -27,10 +27,12 @@ The component accepts all props from TextInput, plus the following:
 
 ```javascript
 interface Props {
-  /** The number of steps it should take to update from an old value to a new value */
-  steps: number;
-  /** The time between each update */
-  time: number;
+  /** Formatter function. Defaults to value => value.toString() */
+  formatter?: (value: number) => string;
+  /** The number of steps it should take to update from an old value to a new value. Defaults to 15 */
+  steps?: number;
+  /** The time between each update. Defaults to 17. */
+  time?: number;
   /** The value the component should animate to. The component will animate to te new value when this prop changes */
   value: number;
 }

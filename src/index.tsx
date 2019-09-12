@@ -2,6 +2,7 @@ import * as React from "react";
 import { TextInput, TextInputProps } from "react-native";
 
 interface Props {
+  formatter: (value: number) => string;
   steps: number;
   time: number;
   value: number;
@@ -9,6 +10,7 @@ interface Props {
 
 export default class AnimatedNumber extends React.Component<Props & Omit<TextInputProps, "editable"|"value">> {
   public static defaultProps: Partial<Props> = {
+    formatter: value => value.toString(),
     steps: 15,
     time: 17,
   };
@@ -34,14 +36,13 @@ export default class AnimatedNumber extends React.Component<Props & Omit<TextInp
   }
 
   public render() {
-    const { steps, time, value, ...props } = this.props;
-    const localValue = Math.floor(this.currentValue);
+    const { formatter, steps, time, value, ...props } = this.props;
 
-    return <TextInput {...props} ref={this.textInputRef} editable={false} value={localValue.toString()} />;
+    return <TextInput {...props} ref={this.textInputRef} editable={false} value={formatter(this.currentValue)} />;
   }
 
   private handleUpdateValueImperatively = () => {
-    const { steps, time, value } = this.props;
+    const { formatter, steps, time, value } = this.props;
 
     /** Stop any previous animation */
     if (undefined !== this.intervalTimer) {
@@ -63,7 +64,7 @@ export default class AnimatedNumber extends React.Component<Props & Omit<TextInp
 
         /** Set next value */
         if (this.textInputRef.current) {
-          this.textInputRef.current.setNativeProps({ text: this.currentValue.toString() });
+          this.textInputRef.current.setNativeProps({ text: formatter(this.currentValue) });
         }
 
         if ((minimumStep === 1 && this.currentValue >= value) || (minimumStep === -1 && this.currentValue <= value)) {

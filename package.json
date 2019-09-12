@@ -6,6 +6,11 @@
   "module": "build/index.es.js",
   "jsnext:main": "build/index.es.js",
   "sideEffects": false,
+  "homepage": "https://github.com/rpander93/react-native-animated-number",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rpander93/react-native-animated-number.git"
+  },
   "scripts": {
     "test": "jest",
     "prepare": "npm run build",
