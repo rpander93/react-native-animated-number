@@ -35,6 +35,12 @@ export default class AnimatedNumber extends React.Component<Props & Omit<TextInp
     }
   }
 
+  public componentWillUnmount() {
+    if (undefined !== this.intervalTimer) {
+      clearInterval(this.intervalTimer);
+    }    
+  }
+
   public render() {
     const { formatter, steps, time, value, ...props } = this.props;
 
