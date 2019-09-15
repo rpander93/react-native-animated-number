@@ -36,9 +36,7 @@ export default class AnimatedNumber extends React.Component<Props & Omit<TextInp
   }
 
   public componentWillUnmount() {
-    if (undefined !== this.intervalTimer) {
-      clearInterval(this.intervalTimer);
-    }    
+    this.possiblyClearInterval();    
   }
 
   public render() {
@@ -47,13 +45,15 @@ export default class AnimatedNumber extends React.Component<Props & Omit<TextInp
     return <TextInput {...props} ref={this.textInputRef} editable={false} value={formatter(this.currentValue)} />;
   }
 
+  private possiblyClearInterval = () => {
+    this.intervalTimer && clearInterval(this.intervalTimer);
+  };
+
   private handleUpdateValueImperatively = () => {
     const { formatter, steps, time, value } = this.props;
 
     /** Stop any previous animation */
-    if (undefined !== this.intervalTimer) {
-      clearInterval(this.intervalTimer);
-    }
+    this.possiblyClearInterval();
     
     /** Calculate change per step */
     const minimumStep = value - this.currentValue > 0 ? 1 : -1;
@@ -74,7 +74,7 @@ export default class AnimatedNumber extends React.Component<Props & Omit<TextInp
         }
 
         if ((minimumStep === 1 && this.currentValue >= value) || (minimumStep === -1 && this.currentValue <= value)) {
-          clearInterval(this.intervalTimer!);
+          this.possiblyClearInterval();
         }
       },
       time
