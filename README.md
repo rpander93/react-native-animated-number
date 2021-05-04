@@ -3,7 +3,7 @@
 ## What is this?
 This component renders a text that smoothly animates to new values as props change.
 
-[Example snack](https://snack.expo.io/rk7n_5DIH)
+[Example snack](https://snack.expo.io/@rpander93/react-native-animated-number)
 
 Other implementations exist. This one is different because it uses a TextInput rather than a Text component and uses [setNativeProps](https://facebook.github.io/react-native/docs/direct-manipulation) to update the value. The benefit of this is that it is much more performant than using state to update the value so the experience is much smoother.
 
